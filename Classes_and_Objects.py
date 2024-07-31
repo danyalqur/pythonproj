@@ -7,7 +7,7 @@
 
 # class MyClass:
 #     variable = "blah"
-
+#
 #     def function(self): # The reason for this self being included as a parameter will be explained later
 #         print("This is a message inside the class")
 
@@ -15,10 +15,10 @@
 
 # class MyClass:
 #     variable = "blah"
-
+#
 #     def function(self):
 #         print("This is a message inside the class.")
-    
+#
 # myobjectx = MyClass()
 
 # Now the varible "myobjectx" holds an object of the class "MyClass" that contains the variable and the function defined within the class called "MyClass"
@@ -28,10 +28,10 @@
 
 # class MyClass:
 #     variable = "blah"
-
+#
 #     def function(self):
 #         print("This is a message inside the class.")
-
+#
 # myobjectx = MyClass()
 
 # myobjectx.variable #This does not do anythingbesides put a "blah here"
@@ -40,12 +40,12 @@
 
 # class MyClass:
 #     variable = "blah"
-
+#
 #     def function(self):
 #         print("This is a message inside the class.")
-
+#
 # myobjectx = MyClass()
-
+#
 # print (myobjectx.variable)
 
 # You can create multiple different objects that are the same class (have the same variables and functions defined). However, each object contains independent
@@ -54,15 +54,15 @@
 
 # class MyClass:
 #     variable = "blah"
-
+#
 #     def function(self):
 #         print("This is a message inside the class.")
-
+#
 # myobjectx = MyClass()
 # myobjecty = MyClass()
-
+#
 # myobjecty.variable = "yackity"
-
+#
 # print(myobjectx.variable)
 # print(myobjecty.variable)
 # #  -> one prints blah the other prints yackity
@@ -72,12 +72,12 @@
 
 # class MyClass:
 #     variable = "blah"
-
+#
 #     def function(self):
 #         print("This is a message inside the class.")
-
+#
 # myobjectx = MyClass()
-
+#
 # myobjectx.function() 
 # # -> This will print out the message "This is a message inside the class."
 
@@ -85,13 +85,13 @@
 # The __init__() function is a special function that is called when the class is being initiated. It's used for assigning values in a class.
 
 # class NumberHolder:
-
+#
 #     def __init__(self, number):
 #         self.number = number # Here the init is arranging things to assign a value to self.number which is number which is passed when the object is made
-    
+#
 #     def returnNumber(self):
 #         return self.number
-
+#
 # var = NumberHolder(7)
 # print(var.returnNumber())
 # #  -> prints 7

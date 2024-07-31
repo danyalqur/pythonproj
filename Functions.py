@@ -20,14 +20,14 @@
 
 # def my_function(): #function definition
 #     print("hello from my function!")
-
+#
 # my_function()
 
 # Functions may also recieve arguments (variables passed from the caller to the function). For example:
 
 # def my_function_with_args(username, greeting):
 #     print("Hello %s, from My_Function! I wish you %s" % (username, greeting))
-
+#
 # my_function_with_args("Danyal", "A happy sunday morning!")
 
 # How do you call functions in Python?
@@ -37,19 +37,19 @@
 # # Define our 3 functions
 # def my_function():
 #     print("Hello From My Function!")
-
+#
 # def my_function_with_args(username, greeting):
 #     print("Hello, %s, From My Function!, I wish you %s"%(username, greeting))
-
+#
 # def sum_two_numbers(a, b):
 #     return a + b
-
+#
 # # print(a simple greeting)
 # my_function()
-
+#
 # #prints - "Hello, John Doe, From My Function!, I wish you a great year!"
 # my_function_with_args("John Doe", "a great year!")
-
+#
 # # after this line x will hold the value 3!
 # x = sum_two_numbers(1,2)
 
