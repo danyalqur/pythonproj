@@ -152,8 +152,53 @@
 # # use it
 # urllib.urlopen(...}
 
-# We can look for which functions are implemented in each module using the dir function: (try this in the python terminal)
+# We can look for which functions are implemented in each module using the dir function: (try this in the python interpreter)
+
 # >>> import urllib
 # >>> dir(urllib)
 
 
+# We can also learn more about modules with the Python interpreter with the help function
+# help(urllib.urlopen)
+
+# note: you can also use the folliwng in a regular python sesh like on vscode with the debugger
+
+# print(dir(urllib)) 
+# # and
+# print(help(urllib))
+
+# Writing packages
+# Packages are namespaces containing multiple packages and modules. They are just directories, but with certain requirements.
+#  
+# Each package in Python is a directory which MUST contain a special file called __init__.py. This file, which can be empty, indicates that the directory
+#  it's in is a Python package. That way it can be imported the same way as a module.
+# 
+# If we create a directory called foo, which marks the package name, we can create a module inside that package called bar. Then we add the __init__.py file
+#  inside the foo directory.
+#
+# To use the module bar, we can import it in two ways:
+
+# import foo.bar
+# # or
+# from foo import bar
+
+# In the first example above, we have to use the foo prefix whenever we access the module bar. In the second example, we don't, because we imported the 
+#  module into our module's namespace
+# 
+# The __init__.py file can also decide which modules the package exports as the API, while keeping other modules internal, by overriding the __all__ 
+#  variable like so:
+
+# __init__.py:
+#
+# __all__  = ["bar"]
+
+# Exercise
+# In this exercise, print an alphabetically sorted list of all the functions in the re module containing the word find.
+
+import re
+#
+# your code goes here
+find_members = []
+full_list = dir(re)
+find_members = list(filter((re.compile(".*find")).match, full_list))
+print(find_members)

@@ -60,6 +60,7 @@ print(format_string % data)
 # However, instead of immediately printing strings out, we will explore the various things you can do to them. 
 # You can also use single quotes to assign a string. However, you will face problems if the value to be assigned itself contains single quotes. 
 # For example to assign the string in these bracket(single quotes are ' ') you need to use double quotes only like this:
+
 # astring = "Hello world!"
 # print("single quotes are ' '")
 # print(len(astring))
