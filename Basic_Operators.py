@@ -1,4 +1,4 @@
-#Basic Operators.py
+#Basic Operators
 
 #Arithmetic Operators
 #Just as any other programming languages, the addition, subtraction, multiplication, and division operators can be used with numbers: 
