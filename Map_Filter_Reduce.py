@@ -53,4 +53,83 @@
 #  or n arguments, then you need to pass in two, three, or n ITERABLES to it.
 
 # Example: say I have a list of circle areas that i calculated somewhere, all in five decimal places.
-#  If I 
+#  If I need to round each element on the list to its position decimal places, meaning that i have to round
+#  the first to one d.p , the second to 2 d.p etc; this is easily accomplishable with map().
+
+# Python gives us the round() built-in function already which takes two arguments, the number to round up
+# and the d.p to round to. so theoretically a homie could do it like this:
+
+# circle_areas = [3.56773, 5.57668, 4.00914, 56.24241, 9.01344, 32.00013]
+# #
+# round_areas = list(map(round, circle_areas, range(1, 7))) # func, iterable1, iterable2 # [= *iterables]
+# #
+# print(round_areas)
+# print(list(range(1, 7))) # list of 1 - 6
+# # this is all self explanatory if you understood everything up to now
+
+# One of the features of map() is that if there is a mismatch in the elements between your iterables it
+#  will not throw out an exception, it will simply stop and give the result with the list length of the 
+#  limiting iterable. We can see an example of this below:
+
+# circle_areas = [3.56773, 5.57668, 4.00914, 56.24241, 9.01344, 32.00013]
+# #
+# result = list(map(round, circle_areas, range(1, 3))) # range(1, 3) is just [1, 2]
+# #
+# print(result) 
+# # -> [3.6, 5.58]
+
+# Obviously the same thing would happen if we shortened the circle areas list equally.
+
+# Exercise 1:
+#  To consolidate our knowledge of map(), we are going to make a lambda function zip(). zip takes a number 
+#  of iterables and creates a tuple containing each of the elements in the iterables. like map() it 
+#  returns a generator object, which can be converted to a list by using the list function on it.
+
+my_strings = ['a','b' ,'c' ,'d' ,'e']
+my_numbers = list(range(1, 6))
+
+results = list(map(lambda x, y: (x, y), my_strings, my_numbers))
+
+print(results)
+
+# From this we can learn that it can be useful to combine map with lambda functions to give us a powerful
+#  in line function application over multiple lists. This highlights how powerful python is as we did not
+#  need to build a function in the standard way. 
+
+# Filter
+#  While map() passes each element in the iterable through a function and returns the result of all 
+#  elements after having passed through the function, filter requires the function to return boolean
+#  values, and then passes each element in the iterable through the function, "filtering" those that are
+#  false. It has the following syntax:
+# 
+#  filter(func, iterable)
+
+# The following points need to be noted regarding filter():
+#  1. Unlike map(), only one iterable is required.
+#  2. The func argument is required to return a boolean type. If it doesn't, filter simply returns the 
+#     iterable passed to it. Also, as only one iterable is required, implicitly we should know that the 
+#     func must take only one argument
+#  3. filter passes each element in the iterable through func and returns only the ones that evaluate to
+#     to true. It acts as a true "filter" as its name suggests :)
+
+# Example 1: we have a list (iterable) of the scores of 10 students in a Chemistry exam. Let's filter out
+#  those who got more than 75
+
+# scores = [66, 90, 68, 59, 76, 60, 88, 74, 81, 65]
+# #
+# passers = list(filter(lambda x: bool(x>75), scores))
+# #
+# print(passers)
+# # -> [90, 76, 88, 81]
+
+# Example 2: Palindrome detector. Let's filter all palindromes from a tuple of suspected palindromes
+
+# dromes = ("demigod", "rewire", "madam", "freer", "anutforajaroftuna", "kiosk")
+# #
+# real_dromes = list(filter(lambda word: (word[::-1] == word) , dromes))
+# #
+# print(real_dromes)
+# # -> ['madam', 'anutforajaroftuna']
+
+# Reduce
+# Reduce applies a function of two arguments cumulatively to the elements of an iterable
