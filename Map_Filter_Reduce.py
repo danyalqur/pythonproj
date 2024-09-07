@@ -2,7 +2,7 @@
 # Map, Filter, and Reduce are paradigms of functional programming. They allow the programmer to write 
 #  simpler, shorter code without necessarily needing to bother about intricacies like loops and branching
 
-# Essentially, the threee functions allow you to apply a function across a number of iterables, in a few
+# Essentially, the three functions allow you to apply a function across a number of iterables, in a few
 #  easy moves. map and filter come built-in with Python (in the __builtin__ module) and require no 
 #  importing. reduce however needs to be imported as it reside in the functools module.
 
@@ -87,9 +87,9 @@
 
 my_strings = ['a','b' ,'c' ,'d' ,'e']
 my_numbers = list(range(1, 6))
-
+#
 results = list(map(lambda x, y: (x, y), my_strings, my_numbers))
-
+#
 print(results)
 
 # From this we can learn that it can be useful to combine map with lambda functions to give us a powerful
@@ -97,7 +97,7 @@ print(results)
 #  need to build a function in the standard way. 
 
 # Filter
-#  While map() passes each element in the iterable through a function and returns the result of all 
+# While map() passes each element in the iterable through a function and returns the result of all 
 #  elements after having passed through the function, filter requires the function to return boolean
 #  values, and then passes each element in the iterable through the function, "filtering" those that are
 #  false. It has the following syntax:
@@ -132,4 +132,73 @@ print(results)
 # # -> ['madam', 'anutforajaroftuna']
 
 # Reduce
-# Reduce applies a function of two arguments cumulatively to the elements of an iterable
+#  Reduce applies a function of two arguments cumulatively to the elements of an iterable, optionally 
+#  starting with an initial argument. It has the following syntax:
+#
+#  reduce(func, iterable[, initial]) # the square brackets here are only there to indicate the 
+#                                       optional nature of initial, they won't actually be there if
+#                                       you were using an initial
+#
+#  where func is the function on which each element in the iterable gets cumulatively applied to, and 
+#  initial is the optional value that gets placed before elements in the iterable in the calculation,
+#  and serves as a default when the iterable is empty. The followin should be noted about reduce():
+#  1. func requires two arguments, the first of which is the first element in iterable (if initial is
+#     not supplied) and the second element in iterable. If initial is supplied, then it becomes the 
+#     first argument to func, and the first element in iterable becomes second.
+#  2. reduce "reduces" iterable into a single value.
+
+# some examples can be seen below:
+
+# Lets create our own sum() function that acts like the built in python one. sum returns the sum of all
+#  items in the iterable that is passed to it.
+
+# from functools import reduce
+# #
+# numbers = [3, 4, 6, 9, 34, 12]
+# #
+# def custom_sum(first, second):
+#     return first + second
+# #
+# result = reduce(custom_sum, numbers)
+# print(result)
+# # -> 68
+# #
+# result2 = reduce(lambda x, y : x + y, numbers) # quicker way which i did here
+# print(result2)
+# # -> 68
+
+# Lets see an example with an initial value here
+
+# from functools import reduce
+# #
+# numbers = [3, 4, 6, 9, 34, 12]
+# #
+# result2 = reduce(lambda x, y : x + y, numbers, 10) 
+# print(result2)
+# # -> 78
+
+# Final Exercise
+
+from functools import reduce
+
+# Use map to print the square of each numbers rounded to three decimal places
+my_floats =  [4.35, 6.09, 3.25, 9.77, 2.16, 8.88, 4.59]
+#
+map_result = list(map(lambda x: x*x , my_floats))
+#
+print(map_result)
+#
+# use filter to print only the names that are less than or equal to seven 
+#  letters
+my_names = ["olumide", "akinremi", "josiah", "temidayo", "omoseun"]
+#
+filter_result = list(filter(lambda name: len(name) <= 7, my_names))
+#
+print(filter_result)
+#
+# use reduce to print the product of these numbers
+my_numbers = [4, 6, 9, 23, 5]
+#
+reduce_result = reduce(lambda x, y: x*y, my_numbers)
+#
+print(reduce_result)
